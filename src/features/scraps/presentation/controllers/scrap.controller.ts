@@ -1,8 +1,12 @@
-import { HttpRequest, HttpResponse } from '../../../../core/presentation';
-import { notFound, ok, serverError } from '../../../../core/presentation';
-import { MVCController } from '../../../../core/presentation';
-import { ScrapRepository } from '../../infra';
-import { CacheRepository } from '../../infra';
+import {
+    HttpRequest,
+    HttpResponse,
+    notFound,
+    ok,
+    serverError,
+    MVCController,
+} from '../../../../core/presentation';
+import { ScrapRepository, CacheRepository } from '../../infra';
 
 export class ScrapController implements MVCController {
     readonly #repository: ScrapRepository;

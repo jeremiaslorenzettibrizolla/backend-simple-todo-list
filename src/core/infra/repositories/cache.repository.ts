@@ -1,4 +1,5 @@
 import IORedis from 'ioredis';
+
 import { Redis } from '../data/connections/redis';
 
 export class CacheRepository {

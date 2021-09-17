@@ -1,13 +1,17 @@
-import { badRequest, ok } from '../../../../core/presentation';
-import { HttpRequest, HttpResponse } from '../../../../core/presentation';
-import { RequireFieldsValidator } from '../../../../core/presentation';
+import {
+    badRequest,
+    ok,
+    HttpRequest,
+    HttpResponse,
+    RequireFieldsValidator,
+} from '../../../../core/presentation';
 import { ListScrap } from '../../domain';
 
 export class ListScrapMiddleware {
     private fields = ['name', 'userUid'];
 
     async handle(request: HttpRequest): Promise<HttpResponse> {
-        const body: ListScrap = request.body;
+        const { body } = request;
 
         for (const field of this.fields) {
             const error = new RequireFieldsValidator(field).validate(body);

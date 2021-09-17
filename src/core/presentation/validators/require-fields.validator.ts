@@ -1,4 +1,4 @@
-import { MissingParamError } from './../errors';
+import { MissingParamError } from '../errors';
 
 export class RequireFieldsValidator {
     readonly #fieldName: string;

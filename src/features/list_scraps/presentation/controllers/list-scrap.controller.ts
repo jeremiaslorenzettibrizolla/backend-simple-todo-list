@@ -1,8 +1,13 @@
-import { HttpRequest, HttpResponse } from '../../../../core/presentation';
-import { notFound, ok, serverError } from '../../../../core/presentation';
-import { MVCController } from '../../../../core/presentation';
+import { CacheRepository } from '../../../../core/infra/repositories';
+import {
+    HttpRequest,
+    HttpResponse,
+    notFound,
+    ok,
+    serverError,
+    MVCController,
+} from '../../../../core/presentation';
 import { ListScrapRepository } from '../../infra';
-import { CacheRepository } from '../../infra';
 
 export class ListScrapController implements MVCController {
     readonly #repository: ListScrapRepository;

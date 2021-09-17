@@ -10,6 +10,7 @@ import {
     OneToMany,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+
 import { ScrapEntity } from './scrap.entity';
 
 @Entity({ name: 'list_scraps' })

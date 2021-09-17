@@ -1,14 +1,14 @@
 import { Router } from 'express';
-import { EMVC } from '../../../../core/presentation';
+
 import {
+    EMVC,
     middlewareAdapter,
     routerMvcAdapter,
+    MVCController,
 } from '../../../../core/presentation';
 import { ListScrapController } from '../controllers';
 import { ListScrapMiddleware } from '../middlewares';
-import { MVCController } from '../../../../core/presentation';
-import { ListScrapRepository } from '../../infra';
-import { CacheRepository } from '../../infra';
+import { ListScrapRepository, CacheRepository } from '../../infra';
 
 const makeController = (): MVCController => {
     const repository = new ListScrapRepository();
@@ -18,7 +18,10 @@ const makeController = (): MVCController => {
 
 export default class ListScrapRoutes {
     public init(routes: Router) {
-        routes.get('/listScraps', routerMvcAdapter(makeController(), EMVC.INDEX));
+        routes.get(
+            '/listScraps',
+            routerMvcAdapter(makeController(), EMVC.INDEX),
+        );
 
         routes.get(
             '/listScraps/:uid',

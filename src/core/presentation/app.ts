@@ -1,5 +1,6 @@
-import express, { Router, Request, Response } from 'express';
 import cors from 'cors';
+import express, { Router, Request, Response } from 'express';
+
 import ListScrapRoutes from '../../features/list_scraps/presentation/routes/routes';
 import ScrapRoutes from '../../features/scraps/presentation/routes/routes';
 
@@ -14,6 +15,7 @@ export default class App {
         return this.#express;
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public init() {
         this.config();
         this.middlewares();
@@ -46,6 +48,7 @@ export default class App {
         new ScrapRoutes().init(router);
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     public start(port: number) {
         this.#express.listen(port, () => {
             console.log('API rodando...');

@@ -11,7 +11,7 @@ export class ScrapRepository {
             listScrapsUID,
         }).save();
 
-        return Object.assign({}, params, scrap);
+        return { ...params, ...scrap };
     }
 
     async getAll(): Promise<Scrap[]> {

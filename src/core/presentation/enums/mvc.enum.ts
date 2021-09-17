@@ -3,5 +3,5 @@ export enum EMVC {
     SHOW,
     STORE,
     UPDATE,
-    DELETE
+    DELETE,
 }

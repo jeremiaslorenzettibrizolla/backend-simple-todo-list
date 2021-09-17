@@ -9,7 +9,7 @@ export class ListScrapRepository {
             title,
         }).save();
 
-        return Object.assign({}, params, scrap);
+        return { ...params, ...scrap };
     }
 
     async getAll(): Promise<ListScrap[]> {
