@@ -9,7 +9,6 @@ import {
     UpdateDateColumn,
     CreateDateColumn,
     PrimaryGeneratedColumn,
-    OneToMany,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { ListScrapEntity } from './list-scrap.entity';
@@ -19,14 +18,14 @@ export class ScrapEntity extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     uid!: string;
 
-    @Column({ name: 'list_scraps_uid' })
-    listScrapsUID!: string;
-
     @Column()
     description!: string;
 
     @Column({ name: 'finish_date' })
     finishDate?: Date;
+
+    @Column({ name: 'list_scraps_uid' })
+    listScrapsUID!: string;
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt!: Date;
@@ -34,9 +33,9 @@ export class ScrapEntity extends BaseEntity {
     @UpdateDateColumn({ name: 'updated_at' })
     updatedAt!: Date;
 
-    @ManyToOne(() => ListScrapEntity, (listScrap) => listScrap.scraps)
+    @ManyToOne(() => ListScrapEntity, (listScraps) => listScraps.scraps)
     @JoinColumn({ name: 'list_scraps_uid', referencedColumnName: 'uid' })
-    listScrap?: ListScrapEntity;
+    listScraps?: ListScrapEntity[];
 
     @BeforeInsert()
     private beforeInsert() {

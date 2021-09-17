@@ -2,7 +2,6 @@ import {
     MigrationInterface,
     QueryRunner,
     Table,
-    TableForeignKey,
 } from 'typeorm';
 
 export class CreateTableListScraps1631815196278 implements MigrationInterface {
@@ -21,11 +20,6 @@ export class CreateTableListScraps1631815196278 implements MigrationInterface {
                     {
                         name: 'title',
                         type: 'varchar',
-                        isNullable: false,
-                    },
-                    {
-                        name: 'user_uid',
-                        type: 'uuid',
                         isNullable: false,
                     },
                     {

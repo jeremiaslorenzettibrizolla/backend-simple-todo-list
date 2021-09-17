@@ -5,7 +5,8 @@ import {
     TableForeignKey,
 } from 'typeorm';
 
-export class CreateTableScraps1626658047457 implements MigrationInterface {
+export class CreateTableScraps1631842468642 implements MigrationInterface {
+
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -30,11 +31,6 @@ export class CreateTableScraps1626658047457 implements MigrationInterface {
                     },
                     {
                         name: 'list_scraps_uid',
-                        type: 'uuid',
-                        isNullable: false,
-                    },
-                    {
-                        name: 'user_uid',
                         type: 'uuid',
                         isNullable: false,
                     },
@@ -65,4 +61,5 @@ export class CreateTableScraps1626658047457 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('scraps', true, true, true);
     }
+
 }

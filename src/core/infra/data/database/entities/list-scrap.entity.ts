@@ -4,16 +4,13 @@ import {
     BeforeInsert,
     BeforeUpdate,
     Column,
-    JoinColumn,
-    ManyToOne,
     UpdateDateColumn,
     CreateDateColumn,
     PrimaryGeneratedColumn,
     OneToMany,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { ScrapEntity } from '.';
-import { Scrap } from '../../../../domain/models/scrap.model';
+import { ScrapEntity } from './scrap.entity';
 
 @Entity({ name: 'list_scraps' })
 export class ListScrapEntity extends BaseEntity {
@@ -29,7 +26,7 @@ export class ListScrapEntity extends BaseEntity {
     @UpdateDateColumn({ name: 'updated_at' })
     updatedAt!: Date;
 
-    @OneToMany(() => ScrapEntity, (scrap) => scrap.listScrap)
+    @OneToMany(() => ScrapEntity, (scrap) => scrap.listScraps)
     scraps?: ScrapEntity[];
 
     @BeforeInsert()
