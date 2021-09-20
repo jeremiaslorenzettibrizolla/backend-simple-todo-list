@@ -3,7 +3,7 @@ import { ListScrap } from './list-scrap.model';
 export interface Scrap {
     uid?: string;
     description: string;
-    finishDate?: Date;
+    status?: string;
     listScrapsUID: string;
     listScraps?: ListScrap;
 }

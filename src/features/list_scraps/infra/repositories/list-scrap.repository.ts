@@ -5,11 +5,11 @@ export class ListScrapRepository {
     async create(params: ListScrap): Promise<ListScrap> {
         const { title } = params;
 
-        const scrap = await ListScrapEntity.create({
+        const listScrap = await ListScrapEntity.create({
             title,
         }).save();
 
-        return { ...params, ...scrap };
+        return Object.assign({}, params, listScrap);
     }
 
     async getAll(): Promise<ListScrap[]> {

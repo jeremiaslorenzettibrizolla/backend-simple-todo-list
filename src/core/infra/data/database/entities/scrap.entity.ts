@@ -22,8 +22,8 @@ export class ScrapEntity extends BaseEntity {
     @Column()
     description!: string;
 
-    @Column({ name: 'finish_date' })
-    finishDate?: Date;
+    @Column()
+    status?: string;
 
     @Column({ name: 'list_scraps_uid' })
     listScrapsUID!: string;

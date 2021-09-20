@@ -18,27 +18,30 @@ const makeController = (): MVCController => {
 
 export default class ScrapRoutes {
     public init(routes: Router) {
-        routes.get('/scraps', routerMvcAdapter(makeController(), EMVC.INDEX));
+        routes.get(
+            '/listScraps/:listScrapsUID/scraps',
+            routerMvcAdapter(makeController(), EMVC.INDEX),
+        );
 
         routes.get(
-            '/scraps/:uid',
+            '/listScraps/:listScrapsUID/scraps/:scrapUID',
             routerMvcAdapter(makeController(), EMVC.SHOW),
         );
 
         routes.post(
-            '/scraps',
+            '/listScraps/:listScrapsUID/scraps',
             middlewareAdapter(new ScrapMiddleware()),
             routerMvcAdapter(makeController(), EMVC.STORE),
         );
 
         routes.put(
-            '/scraps/:uid',
+            '/listScraps/:listScrapsUID/scraps/:scrapUID',
             middlewareAdapter(new ScrapMiddleware()),
             routerMvcAdapter(makeController(), EMVC.UPDATE),
         );
 
         routes.delete(
-            '/scraps/:uid',
+            '/listScraps/:listScrapsUID/scraps/:scrapUID',
             routerMvcAdapter(makeController(), EMVC.DELETE),
         );
     }

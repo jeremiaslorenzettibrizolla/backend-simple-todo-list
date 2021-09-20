@@ -24,9 +24,9 @@ export class CreateTableScraps1631842468642 implements MigrationInterface {
                         isNullable: false,
                     },
                     {
-                        name: 'finish_date',
-                        type: 'timestamp',
-                        isNullable: false,
+                        name: 'status',
+                        type: 'varchar',
+                        isNullable: true,
                     },
                     {
                         name: 'list_scraps_uid',

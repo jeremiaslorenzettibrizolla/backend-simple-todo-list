@@ -95,6 +95,7 @@ export class ListScrapController implements MVCController {
             await this.#repository.delete(uid);
 
             await this.#cache.del(`listScrap:${uid}`);
+            await this.#cache.del('listScrap:all');
 
             return ok({});
         } catch (error) {

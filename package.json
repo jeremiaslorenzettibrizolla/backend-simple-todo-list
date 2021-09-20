@@ -44,6 +44,6 @@
         "migration:revert": "ts-node --transpile-only node_modules/typeorm/cli.js migration:revert",
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
-        "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+        "format": "prettier --write \"**/*.{ts,js,json,md}\""
     }
 }

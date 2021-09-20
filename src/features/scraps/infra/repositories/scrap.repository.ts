@@ -3,15 +3,15 @@ import { Scrap } from '../../domain';
 
 export class ScrapRepository {
     async create(params: Scrap): Promise<Scrap> {
-        const { description, finishDate, listScrapsUID } = params;
+        const { description, status, listScrapsUID } = params;
 
         const scrap = await ScrapEntity.create({
             description,
-            finishDate,
+            status,
             listScrapsUID,
         }).save();
 
-        return { ...params, ...scrap };
+        return Object.assign({}, params, scrap);
     }
 
     async getAll(): Promise<Scrap[]> {
@@ -20,7 +20,7 @@ export class ScrapRepository {
         return scraps.map((scrap) => ({
             uid: scrap.uid,
             description: scrap.description,
-            finishDate: scrap.finishDate,
+            status: scrap.status,
             listScrapsUID: scrap.listScrapsUID,
         }));
     }
@@ -35,7 +35,7 @@ export class ScrapRepository {
         return {
             uid: scrap.uid,
             description: scrap.description,
-            finishDate: scrap.finishDate,
+            status: scrap.status,
             listScrapsUID: scrap.listScrapsUID,
         };
     }
@@ -48,14 +48,14 @@ export class ScrapRepository {
         }
 
         scrap.description = params.description;
-        scrap.finishDate = params.finishDate;
+        scrap.status = params.status;
         scrap.listScrapsUID = params.listScrapsUID;
         scrap.save();
 
         return {
             uid: scrap.uid,
             description: scrap.description,
-            finishDate: scrap.finishDate,
+            status: scrap.status,
             listScrapsUID: scrap.listScrapsUID,
         };
     }

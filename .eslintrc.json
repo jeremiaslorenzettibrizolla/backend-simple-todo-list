@@ -33,9 +33,7 @@
         "@typescript-eslint/no-explicit-any": "off",
         "no-console": "off",
         "import/prefer-default-export": "off",
-        "@typescript-eslint/explicit-function-return-type": [
-            "off"
-        ],
+        "@typescript-eslint/explicit-function-return-type": ["off"],
         "@typescript-eslint/no-unused-vars": [
             "error",
             {
@@ -47,9 +45,7 @@
             "error",
             {
                 "selector": "interface",
-                "format": [
-                    "PascalCase"
-                ],
+                "format": ["PascalCase"],
                 "custom": {
                     "regex": "^I[A-Z]",
                     "match": true
@@ -79,13 +75,9 @@
                 "newlinesBetween": "always", // new line between groups
                 "groups": [
                     "module",
-                    "/^@server\/shared/",
+                    "/^@server/shared/",
                     "/^@/",
-                    [
-                        "parent",
-                        "sibling",
-                        "index"
-                    ]
+                    ["parent", "sibling", "index"]
                 ],
                 "alphabetize": {
                     "order": "asc",

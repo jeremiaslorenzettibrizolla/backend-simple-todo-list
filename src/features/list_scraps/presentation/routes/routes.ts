@@ -24,7 +24,7 @@ export default class ListScrapRoutes {
         );
 
         routes.get(
-            '/listScraps/:uid',
+            '/listScraps/:listScrapsUID',
             routerMvcAdapter(makeController(), EMVC.SHOW),
         );
 
@@ -35,13 +35,13 @@ export default class ListScrapRoutes {
         );
 
         routes.put(
-            '/listScraps/:uid',
+            '/listScraps/:listScrapsUID',
             middlewareAdapter(new ListScrapMiddleware()),
             routerMvcAdapter(makeController(), EMVC.UPDATE),
         );
 
         routes.delete(
-            '/listScraps/:uid',
+            '/listScraps/:listScrapsUID',
             routerMvcAdapter(makeController(), EMVC.DELETE),
         );
     }
