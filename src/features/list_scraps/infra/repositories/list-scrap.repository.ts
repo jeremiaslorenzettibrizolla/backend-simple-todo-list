@@ -1,4 +1,4 @@
-import { ListScrapEntity } from '../../../../core/infra/data/database/entities/list-scrap.entity';
+import { ListScrapEntity } from '../../../../core/infra';
 import { ListScrap } from '../../domain';
 
 export class ListScrapRepository {

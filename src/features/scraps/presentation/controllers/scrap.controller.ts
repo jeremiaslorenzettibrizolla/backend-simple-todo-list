@@ -81,6 +81,7 @@ export class ScrapController implements MVCController {
             const scrap = await this.#repository.update(uid, request.body);
 
             await this.#cache.set(`scrap:${uid}`, scrap);
+            await this.#cache.del('scrap:all');
 
             return ok(scrap);
         } catch (error) {
@@ -94,6 +95,7 @@ export class ScrapController implements MVCController {
             await this.#repository.delete(uid);
 
             await this.#cache.del(`scrap:${uid}`);
+            await this.#cache.del('scrap:all');
 
             return ok({});
         } catch (error) {

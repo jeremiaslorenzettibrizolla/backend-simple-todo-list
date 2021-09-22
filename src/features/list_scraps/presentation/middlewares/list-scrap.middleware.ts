@@ -5,10 +5,9 @@ import {
     HttpResponse,
     RequireFieldsValidator,
 } from '../../../../core/presentation';
-import { ListScrap } from '../../domain';
 
 export class ListScrapMiddleware {
-    private fields = ['name', 'userUid'];
+    private fields = ['title'];
 
     async handle(request: HttpRequest): Promise<HttpResponse> {
         const { body } = request;

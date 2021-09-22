@@ -8,7 +8,7 @@ import {
 import { Scrap } from '../../domain';
 
 export class ScrapMiddleware {
-    private fields = ['name', 'userUid'];
+    private fields = ['description', 'listScrapsUID'];
 
     async handle(request: HttpRequest): Promise<HttpResponse> {
         const { body } = request;
